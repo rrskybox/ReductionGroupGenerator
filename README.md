@@ -8,7 +8,7 @@ The trick is knowing that the structure and location of reduction files for the 
 
 Reduction Group Generator is a Windows Forms executable, written in Visual C#.  The app requires TheSkyX Imaging Edition (Build 10966 or later). The application runs as an uncertified, standalone application under Windows 10/11. 
 
-The source code for this application is available on GitHub under rrskybox/ReductionGroupGenerator.  The One-Click installation package is available in the “publish” directory.  To install, download “HotPursuit.zip” and extract. Then run "setup.exe".  Upon completion, an application icon will have been added to the start menu under "TSXToolKit" with the name "Reduction Group Generator".  This application can be pinned to the Start if desired.
+The source code for this application is available on GitHub under rrskybox/ReductionGroupGenerator.  The One-Click installation package is available in the “publish” directory.  To install, download “ReductionGroupGenerator.zip” and extract. Then run "setup.exe".  Upon completion, an application icon will have been added to the start menu under "TSXToolKit" with the name "Reduction Group Generator".  This application can be pinned to the Start if desired.
 
 A full description can be found at ReductionGroupGenerator.pdf.
 
