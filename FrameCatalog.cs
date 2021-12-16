@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace ReductionGroupGenerator
 {
@@ -205,18 +206,26 @@ namespace ReductionGroupGenerator
                 Path = fitsImagePath;
                 fitsData = new FitsFile(Path);
                 //figure out the frame type
-                if (fitsData.ImageType.Contains("Light"))
+                //Test Code
+                if (CompareString(fitsData.ImageType,"Light"))
                     Type = FrameType.Light;
-                else if (fitsData.ImageType.Contains("Bias"))
+                else if (CompareString(fitsData.ImageType,"Bias"))
                     Type = FrameType.Bias;
-                else if (fitsData.ImageType.Contains("Dark"))
+                else if (CompareString(fitsData.ImageType,"Dark"))
                     Type = FrameType.Dark;
-                else if (fitsData.ImageType.Contains("Flat"))
+                else if (CompareString(fitsData.ImageType,"Flat"))
                     Type = FrameType.Flat;
                 Binning = fitsData.Binning;
                 Exposure = Convert.ToDouble(fitsData.Exposure);
                 Temperature = (int)Math.Round(Convert.ToDouble(fitsData.Temperature));
                 Filter = fitsData.Filter[0].ToString();
+            }
+
+            private bool CompareString (string str, string wordToCheck)
+            {
+                CultureInfo culture = new CultureInfo("");
+                bool result = culture.CompareInfo.IndexOf(str, wordToCheck, CompareOptions.IgnoreCase) >= 0;
+                return result;
             }
         }
 
