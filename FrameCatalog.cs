@@ -160,8 +160,8 @@ namespace ReductionGroupGenerator
         {
             //returns exposure if all frames in the subset have nearly the same exposure, otherwise 0
             List<Frame> flatFrameList = new List<Frame>();
-             List<string> darkList = new List<string>();
-           //get all the flat frames that meet the criteria
+            List<string> darkList = new List<string>();
+            //get all the flat frames that meet the criteria
             foreach (Frame f in FlatFileList.Where(x => x.Temperature == temperature && x.Filter == filter && x.Binning == binning))
                 flatFrameList.Add(f);
             //List<double> exposureList = new List<double>();
@@ -207,13 +207,13 @@ namespace ReductionGroupGenerator
                 fitsData = new FitsFile(Path);
                 //figure out the frame type
                 //Test Code
-                if (CompareString(fitsData.ImageType,"Light"))
+                if (CompareString(fitsData.ImageType, "Light"))
                     Type = FrameType.Light;
-                else if (CompareString(fitsData.ImageType,"Bias"))
+                else if (CompareString(fitsData.ImageType, "Bias"))
                     Type = FrameType.Bias;
-                else if (CompareString(fitsData.ImageType,"Dark"))
+                else if (CompareString(fitsData.ImageType, "Dark"))
                     Type = FrameType.Dark;
-                else if (CompareString(fitsData.ImageType,"Flat"))
+                else if (CompareString(fitsData.ImageType, "Flat"))
                     Type = FrameType.Flat;
                 Binning = fitsData.Binning;
                 Exposure = Convert.ToDouble(fitsData.Exposure);
@@ -221,11 +221,12 @@ namespace ReductionGroupGenerator
                 Filter = fitsData.Filter[0].ToString();
             }
 
-            private bool CompareString (string str, string wordToCheck)
+            private bool CompareString(string str, string wordToCheck)
             {
                 CultureInfo culture = new CultureInfo("");
-                bool result = culture.CompareInfo.IndexOf(str, wordToCheck, CompareOptions.IgnoreCase) >= 0;
-                return result;
+                if (str != null)
+                    return culture.CompareInfo.IndexOf(str, wordToCheck, CompareOptions.IgnoreCase) >= 0;
+                else return false;
             }
         }
 

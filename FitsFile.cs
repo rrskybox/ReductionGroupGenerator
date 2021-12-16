@@ -69,7 +69,10 @@ namespace ReductionGroupGenerator
             string FitsUTCTime = utcDT.TimeOfDay.ToString();
             FitsUTCDateTime = utcDT;
             Filter = ReadKey("FILTER");
+            //Exposure may take several forms, pick in order as they may be duplicated
             Exposure = ReadKey("EXPTIME");
+            if (Exposure == null) ReadKey("EXPOSURE");
+            if (Exposure == null) ReadKey("EXP-TIME");
             Temperature = ReadKey("SET-TEMP");
             ImageType = ReadKey("IMAGETYP");
             string binningX = ReadKey("XBINNING").TrimStart(' ');
