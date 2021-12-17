@@ -73,7 +73,9 @@ namespace ReductionGroupGenerator
             Exposure = ReadKey("EXPTIME");
             if (Exposure == null) ReadKey("EXPOSURE");
             if (Exposure == null) ReadKey("EXP-TIME");
+            //Temperature may take several forms, pick in order
             Temperature = ReadKey("SET-TEMP");
+            if (Temperature == null) ReadKey("SETTEMP");
             ImageType = ReadKey("IMAGETYP");
             string binningX = ReadKey("XBINNING").TrimStart(' ');
             string binningY = ReadKey("YBINNING").TrimStart(' ');
