@@ -127,7 +127,7 @@ namespace ReductionGroupGenerator
             //Now flats
             rl.FlatLibrary = FlatFolderList(temperature, filter, binning);
             //Now flatdarks
-            rl.DarkFlatLibrary = DarkFlatFolderList(temperature, filter, binning);
+            rl.DarkFlatLibrary = DarkFlatFolderList(temperature, binning);
             return rl;
         }
 
@@ -156,13 +156,13 @@ namespace ReductionGroupGenerator
             return flatList;
         }
 
-        private List<string> DarkFlatFolderList(double temperature, string filter, string binning = "1X1")
+        private List<string> DarkFlatFolderList(double temperature, string binning = "1X1")
         {
             //returns exposure if all frames in the subset have nearly the same exposure, otherwise 0
             List<Frame> flatFrameList = new List<Frame>();
             List<string> darkList = new List<string>();
             //get all the flat frames that meet the criteria
-            foreach (Frame f in FlatFileList.Where(x => x.Temperature == temperature && x.Filter == filter && x.Binning == binning))
+            foreach (Frame f in FlatFileList.Where(x => x.Temperature == temperature && x.Binning == binning))
                 flatFrameList.Add(f);
             //List<double> exposureList = new List<double>();
             //foreach (Frame f in flatFrameList)
