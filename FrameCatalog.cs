@@ -218,7 +218,8 @@ namespace ReductionGroupGenerator
                 Binning = fitsData.Binning;
                 Exposure = Convert.ToDouble(fitsData.Exposure);
                 Temperature = (int)Math.Round(Convert.ToDouble(fitsData.Temperature));
-                Filter = fitsData.Filter[0].ToString();
+                //Filter = fitsData.Filter[0].ToString();
+                Filter = fitsData.Filter;
             }
 
             private bool CompareString(string str, string wordToCheck)
