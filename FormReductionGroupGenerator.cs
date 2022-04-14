@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Deployment.Application;
 using System.Windows.Forms;
 using System.Xml.Linq;
-using System.Deployment.Application;
-using System.Diagnostics;
 
 namespace ReductionGroupGenerator
 {
