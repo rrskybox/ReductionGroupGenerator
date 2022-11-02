@@ -117,6 +117,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="Reduction Group Generator Description.docx" />
+    <None Include="Reduction Group Generator Description.pdf" />
     <None Include="ReductionGroupGenerator_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
